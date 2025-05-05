@@ -26,7 +26,9 @@
     "lint": "eslint src/ test/",
     "deps-license": "license-checker --production --csv --out $npm_package_config_deps_check_dir/licenses.csv && license-checker --development --csv --out $npm_package_config_deps_check_dir/licenses-dev.csv",
     "deps-size": "webpack -p --config webpack.check.js --json | webpack-bundle-size-analyzer >| $npm_package_config_deps_check_dir/sizes.txt",
-    "deps-check": "npm run deps-license && npm run deps-size"
+    "deps-check": "npm run deps-license && npm run deps-size",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "keywords": [
     "oai",
@@ -77,6 +79,8 @@
     "qs": "^6.3.0",
     "url": "^0.11.0",
     "utf8-bytes": "0.0.1",
-    "utfstring": "^2.0.0"
-  }
+    "utfstring": "^2.0.0",
+    "snyk": "^1.316.1"
+  },
+  "snyk": true
 }
